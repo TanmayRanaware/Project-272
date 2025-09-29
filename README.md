@@ -1,4 +1,4 @@
-```markdown
+
 # 2) Change-Point-First RCA Agent for Microservices
 
 Modern microservice systems generate **anomaly storms**: one real fault triggers dozens of alerts across downstream services. Teams spend precious minutes chasing **symptoms** instead of the **first cause**, inflating **MTTR** and burning **error budgets**.  
@@ -101,20 +101,4 @@ This agent **leads with time** (the **first** change) and validates a **propagat
 
 ---
 
-## 📄 License & Status
 
-- License: _TBD (e.g., Apache-2.0)_.  
-- Project status: **Research/Prototype** (contributions welcome).
-
----
-
-## 🤝 Contributing
-
-Issues and PRs are welcome. Please open an issue to discuss major changes or new features.
-
----
-
-## 📬 Contact
-
-For questions or demo requests, open a GitHub issue.
-```
