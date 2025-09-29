@@ -1,25 +1,24 @@
 
-# 1) ```markdown
-# OrgLens — AI-Powered Expert Matching for Organizations
+# 1) 
+# MatchMeWith — AI-Powered Expert Matching for Organizations
 
-An AI-powered expert matching system that connects you with the right professionals **inside** your company. OrgLens builds a **knowledge graph** and rich **people profiles** by leveraging data from docs, code, tickets, and org systems—so you can find “who knows X” in seconds.
+An AI-powered expert matching system that connects you with the right professionals **inside** your company. MatchMeWith builds a **knowledge graph** and rich **people profiles** by leveraging data from docs, code, tickets, and org systems—so you can find true match in seconds.
 
 ---
 
 ## 🚀 What is this project?
-OrgLens discovers, ranks, and introduces internal experts for a given topic, tech, domain, or system. It understands **skills**, **projects**, **ownership**, and **context** (teams, services, regions), then routes your request to the best-fit people.
+MatchMeWith discovers, ranks, and introduces internal experts for a given topic, tech, domain, or system. It understands **skills**, **projects**, **ownership**, and **context** (teams, services, regions), then routes your request to the best-fit people.
 
 ---
 
 ## 🧩 The problem
-- Expertise is **siloed** across wikis, tickets, repos, and chats.
 - Org charts and job titles **don’t reflect real skills** or current work.
 - Finding help is slow and noisy; people get **interrupted** repeatedly; **duplicate work** happens.
 
 ---
 
 ## 🤖 How the AI agent solves it
-1. **Ingests signals** from HRIS (titles/teams), Git (repos/PRs), tickets (Jira), wikis (Confluence/Notion), incident systems, and calendars (availability windows).
+1. **Ingests signals** from company structure (titles/teams)/Git (repos/PRs)/tickets (Jira)/wikis(Confluence/Notion)/calendars (availability windows).
 2. **Extracts skills & domains** using NLP (entity/skill mining, topic modeling) and links them to people/projects.
 3. **Builds a knowledge graph** of *people ↔ skills ↔ projects ↔ systems* and a vector index for semantic search.
 4. **Matches & ranks experts** by evidence (recent commits, tickets closed, docs authored), **context fit** (team/product), **availability**, and **responsiveness**.
@@ -32,13 +31,13 @@ OrgLens discovers, ranks, and introduces internal experts for a given topic, tec
 ```
 
 ```
-    [HRIS]   [Jira]   [Git]   [Docs/Wiki]   [Incidents]   [Calendars]
+    [company structure]   [Jira]   [Git]   [Docs/Wiki]   [Incidents]   [Calendars]
          \      |       |         |             |              /
                           [Ingest & ETL + PII Redaction]
                                        |
                        [Skill/Entity Extraction + Linking]
                                        |
-                [Knowledge Graph (e.g., Neo4j) + Vector Index]
+                       [Knowledge Graph  + Vector Index]
                                        |
                        [Matching & Ranking Service (API)]
                                        |
