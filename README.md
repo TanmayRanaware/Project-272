@@ -65,7 +65,7 @@ You can ask:
 - Build and refresh a **live service graph** from traces + change events.  
 - Correlate **earliest change** with **downstream symptoms** to propose a **propagation path**.  
 - Emit an **explainable incident card** with evidence and suggested first actions.  
-- Provide **CLI/Chat** entry points for **on-demand** investigations.
+- Provide **Chat** entry points for **on-demand** investigations.
 
 > This README describes the project concept and goals. See the `/docs` and `/examples` folders (to be added) for setup, datasets, and demos.
 
