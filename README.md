@@ -43,7 +43,7 @@ You can ask:
 
 ---
 
-## 🧪 Toy Example
+## 🧪 Example
 
 ```
 
