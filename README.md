@@ -285,89 +285,76 @@ Instead of seeing dozens of CVE alerts, your team gets a **ranked vulnerability 
 
 ---
 
-4.Project: Data Privacy Guardian Agent
-1. Problem Statement
+4. 🛡️ Data Privacy Guardian Agent
 
-Enterprises handle massive volumes of sensitive data — customer names, emails, SSNs, credit card info, health records, etc.
+An Agentic AI system that autonomously monitors enterprise data pipelines and databases to detect, prevent, and remediate PII leaks or non-compliant data flows (e.g., exporting customer data without anonymization).
+Designed to help enterprises stay compliant with GDPR, CCPA, HIPAA, PCI-DSS, and other regulations.
 
-Regulations like GDPR (EU), CCPA (California), and HIPAA (US healthcare) impose strict rules on how Personally Identifiable Information (PII) and Sensitive Personal Data (SPD) are stored, processed, and shared.
+🚀 Problem
 
-Current challenges:
+Enterprises process massive amounts of sensitive data (emails, SSNs, credit cards, health records).
 
-Data pipelines often move data between systems (ETL, data warehouses, analytics, ML training). PII sometimes flows without anonymization.
+Developers and analysts may unknowingly expose raw customer data.
 
-Developers & analysts might unknowingly export customer data in logs, dashboards, or shared datasets.
+Current compliance checks are manual, slow, and reactive.
 
-Manual compliance checks are slow, error-prone, and reactive (issues discovered after violations).
+Violations can lead to multi-million-dollar fines and reputational loss.
 
-Consequences:
+💡 Solution
 
-Massive fines (GDPR penalties can reach 4% of global revenue).
+The Data Privacy Guardian Agent:
 
-Loss of trust, reputational damage.
+Continuously monitors data pipelines, queries, and exports.
 
-2. Agentic AI Solution
+Detects sensitive PII/PHI using ML + pattern detection.
 
-The Data Privacy Guardian Agent is an autonomous system that:
+Applies policy-as-code to enforce compliance.
 
-Monitors data pipelines & databases continuously (ETL jobs, data lakes, APIs).
+Takes autonomous actions: mask, encrypt, block, or quarantine data.
 
-Detects PII/PHI data patterns (e.g., email addresses, SSNs, credit card numbers, IPs, medical terms).
+Generates audit-ready reports for regulators and security teams.
 
-Context-aware compliance checks:
+🏗️ Architecture
 
-Is the data anonymized before being exported?
+Core Components
 
-Is it encrypted in storage and transit?
+Detection Layer → Regex + ML (Presidio, spaCy, HuggingFace) for PII/PHI.
 
-Does the target system meet compliance standards?
+Classifier for Unstructured Data → NLP/Embeddings to catch hidden PII in logs, notes, etc.
 
-Takes autonomous actions:
+Policy Engine → Compliance rules encoded with OPA/Sentinel.
 
-Blocks risky exports (e.g., CSV with raw PII sent to external S3 bucket).
+Risk Scoring → Context-aware severity based on lineage, destination, and user role.
 
-Suggests or applies anonymization/pseudonymization.
+Action Executor → Applies masking, encryption, blocking, or quarantining.
 
-Generates compliance alerts and reports.
+Audit & Evidence Store → Immutable logs + Data Protection Impact Assessment (DPIA) reports.
 
-3. Workflow Example
+Control Plane
 
-🔹 Step 1 – Monitoring:
-The agent hooks into ETL jobs (Airflow, Snowflake, Kafka, Databricks) and DB queries (SQL logs).
+Admin Console → Dashboards for monitoring and policy management.
 
-🔹 Step 2 – Detection:
+IAM & Secrets → Role-based access + KMS/HSM integration.
 
-Detects sensitive fields like email, ssn, dob, credit_card_no.
+SIEM/SOAR → Alerts via Splunk/ELK/Sentinel.
 
-Uses ML/NLP to catch hidden PII (e.g., names in free-text fields, addresses in notes).
+Compliance Packs → Mapped to GDPR, CCPA, HIPAA, PCI-DSS.
 
-🔹 Step 3 – Compliance Check:
+🔄 Workflow Example
 
-Is this export going to a non-compliant storage (e.g., unsecured S3 bucket)?
+Analyst runs an export query.
 
-Is anonymization applied before ML training dataset generation?
+Agent intercepts pipeline output.
 
-Does data access match the user’s role-based permissions?
+Detection layer finds PII (e.g., emails, SSNs).
 
-🔹 Step 4 – Action:
+Policy engine checks compliance rules.
 
-🚫 Block: Stop a non-compliant export (with logs for audit).
+Risk scoring decides if masking/encryption is required.
 
-🛡️ Fix: Auto-mask sensitive fields before sharing.
+Action executor applies transformations or blocks.
 
-📄 Report: Generate a Data Protection Impact Assessment (DPIA) and compliance report.
-
-4. Enterprise Impact
-
-Regulatory Compliance: Prevents violations of GDPR, CCPA, HIPAA, PCI-DSS.
-
-Risk Reduction: Stops sensitive data leaks before they happen.
-
-Audit Readiness: Auto-generates compliance reports for regulators and auditors.
-
-Cost Savings: Avoids multi-million-dollar fines and reduces manual compliance workload.
-
-Trust: Builds stronger customer confidence by protecting their data.
+Audit logs are generated and alerts sent to SIEM.
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0c5b9d1c-3d71-44e8-993a-3811e4c248c4" />
 
