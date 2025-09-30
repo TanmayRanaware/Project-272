@@ -285,76 +285,83 @@ Instead of seeing dozens of CVE alerts, your team gets a **ranked vulnerability 
 
 ---
 
-4. 🛡️ Data Privacy Guardian Agent
+4. # 🛡️ Data Privacy Guardian Agent
 
-An Agentic AI system that autonomously monitors enterprise data pipelines and databases to detect, prevent, and remediate PII leaks or non-compliant data flows (e.g., exporting customer data without anonymization).
-Designed to help enterprises stay compliant with GDPR, CCPA, HIPAA, PCI-DSS, and other regulations.
+An **Agentic AI system** that autonomously monitors enterprise **data pipelines and databases** to detect, prevent, and remediate **PII leaks** or **non-compliant data flows** (e.g., exporting customer data without anonymization).  
+Designed to help enterprises stay compliant with **GDPR, CCPA, HIPAA, PCI-DSS**, and other regulations.  
 
-🚀 Problem
+---
 
-Enterprises process massive amounts of sensitive data (emails, SSNs, credit cards, health records).
+## 🚀 Problem
 
-Developers and analysts may unknowingly expose raw customer data.
+Enterprises process massive amounts of sensitive data (emails, SSNs, credit cards, health records).  
+- **Developers and analysts** may unknowingly expose raw customer data.  
+- Current compliance checks are **manual, slow, and reactive**.  
+- Violations can lead to **multi-million-dollar fines** and reputational loss.  
 
-Current compliance checks are manual, slow, and reactive.
+---
 
-Violations can lead to multi-million-dollar fines and reputational loss.
+## 💡 Solution
 
-💡 Solution
+The **Data Privacy Guardian Agent**:  
+- **Continuously monitors** data pipelines, queries, and exports.  
+- **Detects sensitive PII/PHI** using ML + pattern detection.  
+- Applies **policy-as-code** to enforce compliance.  
+- Takes **autonomous actions**: mask, encrypt, block, or quarantine data.  
+- Generates **audit-ready reports** for regulators and security teams.  
 
-The Data Privacy Guardian Agent:
+---
 
-Continuously monitors data pipelines, queries, and exports.
+## 🏗️ Architecture
 
-Detects sensitive PII/PHI using ML + pattern detection.
+![Architecture Diagram](./architecture.png)
 
-Applies policy-as-code to enforce compliance.
+### **Core Components**
+1. **Detection Layer** → Regex + ML (Presidio, spaCy, HuggingFace) for PII/PHI.  
+2. **Classifier for Unstructured Data** → NLP/Embeddings to catch hidden PII in logs, notes, etc.  
+3. **Policy Engine** → Compliance rules encoded with OPA/Sentinel.  
+4. **Risk Scoring** → Context-aware severity based on lineage, destination, and user role.  
+5. **Action Executor** → Applies masking, encryption, blocking, or quarantining.  
+6. **Audit & Evidence Store** → Immutable logs + Data Protection Impact Assessment (DPIA) reports.  
 
-Takes autonomous actions: mask, encrypt, block, or quarantine data.
+### **Control Plane**
+- **Admin Console** → Dashboards for monitoring and policy management.  
+- **IAM & Secrets** → Role-based access + KMS/HSM integration.  
+- **SIEM/SOAR** → Alerts via Splunk/ELK/Sentinel.  
+- **Compliance Packs** → Mapped to GDPR, CCPA, HIPAA, PCI-DSS.  
 
-Generates audit-ready reports for regulators and security teams.
+---
 
-🏗️ Architecture
+## 🔄 Workflow Example
 
-Core Components
+1. **Analyst runs an export query.**  
+2. **Agent intercepts pipeline output.**  
+3. **Detection layer finds PII** (e.g., emails, SSNs).  
+4. **Policy engine checks compliance rules.**  
+5. **Risk scoring decides** if masking/encryption is required.  
+6. **Action executor applies transformations** or blocks.  
+7. **Audit logs are generated and alerts sent** to SIEM.  
 
-Detection Layer → Regex + ML (Presidio, spaCy, HuggingFace) for PII/PHI.
+---
 
-Classifier for Unstructured Data → NLP/Embeddings to catch hidden PII in logs, notes, etc.
+## ⚡ Benefits
 
-Policy Engine → Compliance rules encoded with OPA/Sentinel.
+- ✅ **Continuous Compliance** – Real-time enforcement of GDPR/CCPA.  
+- ✅ **Reduced Risk** – Prevents PII leaks before they leave the system.  
+- ✅ **Audit-Ready** – Auto-generates DPIA and compliance evidence.  
+- ✅ **Cost Savings** – Avoids fines, reduces manual compliance work.  
+- ✅ **Enterprise-Grade Security** – Works across DBs, data lakes, ML pipelines.  
 
-Risk Scoring → Context-aware severity based on lineage, destination, and user role.
+---
 
-Action Executor → Applies masking, encryption, blocking, or quarantining.
+## 📈 Roadmap
 
-Audit & Evidence Store → Immutable logs + Data Protection Impact Assessment (DPIA) reports.
+- [x] MVP: Detect emails + SSNs in SQL queries and block risky exports.  
+- [ ] Add ML-based free-text PII detection.  
+- [ ] Integrate with SIEM/SOAR platforms for automated alerts.  
+- [ ] Full compliance reporting (GDPR DPIA, HIPAA audits).  
+- [ ] Multi-agent collaboration (Privacy + Vulnerability agents).  
 
-Control Plane
-
-Admin Console → Dashboards for monitoring and policy management.
-
-IAM & Secrets → Role-based access + KMS/HSM integration.
-
-SIEM/SOAR → Alerts via Splunk/ELK/Sentinel.
-
-Compliance Packs → Mapped to GDPR, CCPA, HIPAA, PCI-DSS.
-
-🔄 Workflow Example
-
-Analyst runs an export query.
-
-Agent intercepts pipeline output.
-
-Detection layer finds PII (e.g., emails, SSNs).
-
-Policy engine checks compliance rules.
-
-Risk scoring decides if masking/encryption is required.
-
-Action executor applies transformations or blocks.
-
-Audit logs are generated and alerts sent to SIEM.
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0c5b9d1c-3d71-44e8-993a-3811e4c248c4" />
 
