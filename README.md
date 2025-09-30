@@ -285,3 +285,89 @@ Instead of seeing dozens of CVE alerts, your team gets a **ranked vulnerability 
 
 ---
 
+4.Project: Data Privacy Guardian Agent
+1. Problem Statement
+
+Enterprises handle massive volumes of sensitive data — customer names, emails, SSNs, credit card info, health records, etc.
+
+Regulations like GDPR (EU), CCPA (California), and HIPAA (US healthcare) impose strict rules on how Personally Identifiable Information (PII) and Sensitive Personal Data (SPD) are stored, processed, and shared.
+
+Current challenges:
+
+Data pipelines often move data between systems (ETL, data warehouses, analytics, ML training). PII sometimes flows without anonymization.
+
+Developers & analysts might unknowingly export customer data in logs, dashboards, or shared datasets.
+
+Manual compliance checks are slow, error-prone, and reactive (issues discovered after violations).
+
+Consequences:
+
+Massive fines (GDPR penalties can reach 4% of global revenue).
+
+Loss of trust, reputational damage.
+
+2. Agentic AI Solution
+
+The Data Privacy Guardian Agent is an autonomous system that:
+
+Monitors data pipelines & databases continuously (ETL jobs, data lakes, APIs).
+
+Detects PII/PHI data patterns (e.g., email addresses, SSNs, credit card numbers, IPs, medical terms).
+
+Context-aware compliance checks:
+
+Is the data anonymized before being exported?
+
+Is it encrypted in storage and transit?
+
+Does the target system meet compliance standards?
+
+Takes autonomous actions:
+
+Blocks risky exports (e.g., CSV with raw PII sent to external S3 bucket).
+
+Suggests or applies anonymization/pseudonymization.
+
+Generates compliance alerts and reports.
+
+3. Workflow Example
+
+🔹 Step 1 – Monitoring:
+The agent hooks into ETL jobs (Airflow, Snowflake, Kafka, Databricks) and DB queries (SQL logs).
+
+🔹 Step 2 – Detection:
+
+Detects sensitive fields like email, ssn, dob, credit_card_no.
+
+Uses ML/NLP to catch hidden PII (e.g., names in free-text fields, addresses in notes).
+
+🔹 Step 3 – Compliance Check:
+
+Is this export going to a non-compliant storage (e.g., unsecured S3 bucket)?
+
+Is anonymization applied before ML training dataset generation?
+
+Does data access match the user’s role-based permissions?
+
+🔹 Step 4 – Action:
+
+🚫 Block: Stop a non-compliant export (with logs for audit).
+
+🛡️ Fix: Auto-mask sensitive fields before sharing.
+
+📄 Report: Generate a Data Protection Impact Assessment (DPIA) and compliance report.
+
+4. Enterprise Impact
+
+Regulatory Compliance: Prevents violations of GDPR, CCPA, HIPAA, PCI-DSS.
+
+Risk Reduction: Stops sensitive data leaks before they happen.
+
+Audit Readiness: Auto-generates compliance reports for regulators and auditors.
+
+Cost Savings: Avoids multi-million-dollar fines and reduces manual compliance workload.
+
+Trust: Builds stronger customer confidence by protecting their data.
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0c5b9d1c-3d71-44e8-993a-3811e4c248c4" />
+
