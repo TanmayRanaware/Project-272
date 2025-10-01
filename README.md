@@ -285,7 +285,7 @@ Instead of seeing dozens of CVE alerts, your team gets a **ranked vulnerability 
 
 ---
 
-4. # 🛡️ Data Privacy Guardian Agent
+# 4) 🛡️ Data Privacy Guardian Agent
 
 An **Agentic AI system** that autonomously monitors enterprise **data pipelines and databases** to detect, prevent, and remediate **PII leaks** or **non-compliant data flows** (e.g., exporting customer data without anonymization).  
 Designed to help enterprises stay compliant with **GDPR, CCPA, HIPAA, PCI-DSS**, and other regulations.  
