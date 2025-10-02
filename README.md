@@ -102,7 +102,7 @@ This agent **leads with time** (the **first** change) and validates a **propagat
 
 
 
-# 2)  OrgNexus : AI-Powered Expert Matching for Organizations
+# 2)  OrgNexus : Expert Matching for Organizations
 
 An AI-powered expert matching system that connects you with the right professionals **inside** your company. MatchMeWith builds a **knowledge graph** and rich **people profiles** by leveraging data from docs, code, tickets, and org systems—so you can find true match in seconds.
 
