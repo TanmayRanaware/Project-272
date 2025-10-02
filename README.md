@@ -147,7 +147,7 @@ MatchMeWith discovers, ranks, and introduces internal experts for a given topic,
                                        |
              Slack / Teams Bot • Web UI • Email/Calendar Invites
 ```
-
+---
 # 3) 🛡️ Data Privacy Guardian Agent
 
 An **Agentic AI system** that autonomously monitors enterprise **data pipelines and databases** to detect, prevent, and remediate **PII leaks** or **non-compliant data flows** (e.g., exporting customer data without anonymization).  
