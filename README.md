@@ -146,7 +146,7 @@ MatchMeWith discovers, ranks, and introduces internal experts for a given topic,
                 [AI Agent Orchestrator (Chat/Tool Use/RAG)]
                                        |
              Slack / Teams Bot • Web UI • Email/Calendar Invites
-```
+
 ---
 # 3) 🛡️ Data Privacy Guardian Agent
 
